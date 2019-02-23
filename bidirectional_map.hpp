@@ -17,7 +17,7 @@ public:
 	bidirectional_map& operator=(bidirectional_map&& other)
 
 	bidirectional_map(const bidirectional_map &) = default;
-	~bidirectional_map();
+	~bidirectional_map() = default;
 
 	auto sbegin();
 	auto send();
