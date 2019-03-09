@@ -1,4 +1,3 @@
-// A Hello World! program in C#.
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -19,8 +18,7 @@ public class Form1 : Form
         button1.Location = new Point(30, 30);
         button1.Text = "Click me";
         this.Controls.Add(button1);
-        button1.Click += new EventHandler(button1_Click);
-
+ q
     }
     private void button1_Click(object sender, EventArgs e)
     {
@@ -31,7 +29,7 @@ public class Form1 : Form
     public static void setProps(ref Form f) {
         f.WindowState = FormWindowState.Maximized;
         f.TopMost = true;
-        f.BackColor = Color.FromArgb(15, 15, 80);
+        f.BackColor = Color.FromArgb(22, 22, 9); // The colour is Eigengrau
     }
 
     [STAThread]
