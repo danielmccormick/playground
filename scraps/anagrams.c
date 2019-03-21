@@ -3,13 +3,10 @@ bool areAnagrams(char *a, char *b) { // Will compare two c strs for equality
 	// you might have to do something like memset(aChars,0,128*sizeof(int)); ??
 	int bChars[128] = {0};
 	while (*a != 0) {
-		aChars[*a++]++;
+		aChars[*(a++)]++;
 	}
 	while (*b != 0) {
-		bChars[*b++]++;
+		bChars[*(b++)]++;
 	}
-	for (int i = 0; i < 128; i++) {
-		if (aChars[i] != bChars[i]) return false;
-	}
-	return true;
+	return (!memcmp(aChars,bChars,128*sizeof(int));
 }
