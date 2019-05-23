@@ -5,22 +5,31 @@
 #include <string>
 #include <algorithm>
 
-void recoverBurrows(int R, std::string col) {
+std::string recoverBurrows(int R, const std::string &col) {
 	std::string perm = col;
 	std::sort(perm.begin(),perm.end());
 	std::vector<std::string> list(perm.size());
+	std::vector<std::string> tmpList(perm.size());
 	for (int i = 0; i < col.size(); i++) {
 		list[i] += perm[i];
 		list[i] += col[i];
 	}
 	std::sort(list.begin(),list.end()); // Now have two columns in order - can the rest be done?
-	for (std::string s : list) {
-		std::cout << "Possible match: " << s << "\n";
-	}
-	//std::cout << "Called with: " << col << " and permutation " << R << "\n";
-
 	
-	return;
+	while(1) {
+		for (int i = 0; i < col.size(); i++) {
+			tmpList[i] += col[i];
+			tmpList[i] += list[i];
+			list[i] = tmpList[i];
+			tmpList[i].clear();
+		}
+		std::sort(list.begin(),list.end());
+		if(list[0].size() == col.size()) {
+			return list[R-1];
+		}
+		std::cout << "List Size: " << list[0].size() << "\n";	
+	}
+	return "";
 }
 
 int main() {
@@ -33,7 +42,7 @@ int main() {
 		R = std::stoi(junk);
 		junk.clear();
 		std::getline(std::cin, col);
-		recoverBurrows(R,col);
+		std::cout << recoverBurrows(R,col);
 	}
 
 	return 0;
