@@ -1,9 +1,7 @@
-#include <unordered_map>
-#include <set>
-#include <vector>
 #include <iostream>
-#include <string>
 #include <algorithm>
+#include <string>
+#include <vector>
 
 std::string recoverBurrows(int R, const std::string &col) {
 	std::vector<std::string> list(col.size());
@@ -33,7 +31,7 @@ int main() {
 	std::string R;
 	while(1) {
 		std::getline(std::cin, R);
-		if(junk == "0" || R.empty()) return 0;
+		if(R == "0" || R.empty()) return 0;
 		std::getline(std::cin, col);
 		std::cout << recoverBurrows(std::stoi(R),col) << "\n";
 	}
