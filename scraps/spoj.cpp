@@ -20,9 +20,6 @@ std::string recoverBurrows(int R, const std::string &col) {
 			tmpList[i].clear();
 		}
 		std::sort(list.begin(),list.end());
-		//for (std::string s : list) {
-		//		std::cout << "Possible Match: " << s << "\n";
-		//}
 		if(list[0].size() == col.size()) {
 			
 			return list[R-1];
@@ -32,16 +29,13 @@ std::string recoverBurrows(int R, const std::string &col) {
 }
 
 int main() {
-	int R;
 	std::string col;
-	std::string junk;
+	std::string R;
 	while(1) {
-		std::getline(std::cin, junk);
-		if(junk == "0" || junk.empty()) return 0;
-		R = std::stoi(junk);
-		junk.clear();
+		std::getline(std::cin, R);
+		if(junk == "0" || R.empty()) return 0;
 		std::getline(std::cin, col);
-		std::cout << recoverBurrows(R,col) << "\n";
+		std::cout << recoverBurrows(std::stoi(R),col) << "\n";
 	}
 
 	return 0;
