@@ -8,5 +8,6 @@ all:$(FILENAME)
 % : %.o
 	./$@.o;
 
+.PHONY: clean
 clean:
 	rm -rf *.o
