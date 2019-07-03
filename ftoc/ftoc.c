@@ -3,6 +3,11 @@
 #include <math.h>
 #include <stdlib.h>
 
+enum order { ONE, THOU, MIL, BIL };
+const float order_float_map[] = {1.0f, 1.0e3f, 1.0e6f,1.0e9f};
+const int order_int_map[] = {1, 1000, 1000000, 1000000000};
+const char order_char_map[] = {'C', 'K', 'M', 'B'};
+
 enum order getOrder(const float f) {
 	if (f > 1.0e9f) return BIL;
 	else if (f > 1.0e6f) return MIL;
@@ -64,7 +69,7 @@ int getDecimal(float f,const enum order o, const int i) {
  * @param f : dloating point number to be converted
  * param c : pointer to array of six chars. 
  */
-static void fto6c(float f, char c[]) {
+void fto6c(float f, char c[]) {
 	enum order magnitude = getOrder(f);
 	int offset = precursor(f,magnitude);
 	c[offset] = order_char_map[offset];	

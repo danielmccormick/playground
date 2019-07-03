@@ -1,10 +1,5 @@
 #include <math.h>
 
-enum order { ONE, THOU, MIL, BIL };
-const float order_float_map[] = {1.0f, 1.0e3f, 1.0e6f,1.0e9f};
-const int order_int_map[] = {1, 1000, 1000000, 1000000000};
-const char order_char_map[] = {'C', 'K', 'M', 'B'};
-
 /* getOrder : returns order of magnitude within bounds of enum
  *
  * @param f : floating point number input
@@ -34,8 +29,9 @@ int getDecimal(float f,const enum order o, const int i);
 
 
 /* fto6C() : Converts floating point to six digits
+ * Warning: Since in the lab null terminating is unneccesary, you need to manually set the null terminator
  *
  * @param f : dloating point number to be converted
  * param c : pointer to array of six chars. 
  */
-static void fto6c(float f, char c[]);
+void fto6c(float f, char c[]);
