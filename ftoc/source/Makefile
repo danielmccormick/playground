@@ -5,8 +5,8 @@ default: ftoc
 ftoc: ftoc.o main.c
 	gcc main.c ftoc.o $(FLAGS) -o ftoc 
 
-ftoc.o: ftoc.c ftoc.h
-	gcc ftoc.c $(FLAGS) -c -o ftoc.o
+ftoc.o: lib/ftoc.c lib/ftoc.h
+	gcc lib/ftoc.c $(FLAGS) -c -o ftoc.o
 
 .PHONY: clean
 clean: 
