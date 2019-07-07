@@ -1,10 +1,10 @@
 #!/bin/sh
-echo "10"
-./ftoc 10
-echo "1000"
-./ftoc 1000
-echo "1001"
-./ftoc 1001
-echo "10000000"
-./ftoc 10000000
-
+./ftoc 1
+./ftoc 12
+./ftoc 123
+./ftoc 1234
+./ftoc 12345
+./ftoc 123456
+./ftoc 1234567
+./ftoc 12345678
+./ftoc 123456789

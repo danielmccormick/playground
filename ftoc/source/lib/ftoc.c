@@ -45,7 +45,7 @@ int getDecimal(float f,const enum order o, const int i) {
 	while (f >= order_float_map[o]) {
 		f -= order_float_map[o];
 	}
-	if (f < 0.5f) return 0;
+	if (f < 0.0005f) return 0;
 	while (f <= 10000.0f) f *= 10.0f;
 	int f_i = (int)f;
 	switch(i) {
@@ -84,16 +84,13 @@ void fto6c(float f, char c[]) {
 		c[0] = 'A'; c[1] = 'E'; c[2] = 'R'; c[3] = 'R'; c[4] = 'O'; c[5] = 'R';
 		return;
 	}
-	printf("Order calculated: %i\n", (int)magnitude);
 	int offset = precursor(f,magnitude);
-	printf("Offset calculated: %i\n", offset);
 	c[offset] = order_char_map[magnitude];	
 	for (int i = 1; i <= offset; i++) {
-		printf("%i before offset yields %i\n", i, (int)ftrunc(f,magnitude,i));
 		c[offset-i] = (char)ftrunc(f,magnitude,i)+'0';
 	}
 	for (int i = 0; i+offset < 5; i++) {
-		printf("%i after offset yields %i\n", i,getDecimal(f,magnitude,i));
+		//printf("%i after offset yields %i\n", i,getDecimal(f,magnitude,i));
 		c[i+offset+1] = (char)getDecimal(f,magnitude,i)+'0';
 	}
 	return;
