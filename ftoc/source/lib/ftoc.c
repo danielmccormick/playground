@@ -75,8 +75,8 @@ int getDecimal(float f,const enum order o, const int i) {
  * param c : pointer to array of six chars. 
  */
 void fto6c(float f, char c[]) {
-	if (f < 0.1f) {
-		for (int i = 0; i < 6; i++) c[6] = '0';
+	if (f < 1.0f) {
+		for (int i = 0; i < 6; i++) c[i] = '0';
 		return;
 	}
 	enum order magnitude = getOrder(f);
